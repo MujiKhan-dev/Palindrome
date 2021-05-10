@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+
+    <script>
+        console.log("Palindromes in given string are: ");
+        let allPalindrome = function (i, j, k) {
+
+            let count = 0;
+            while (j >= 0 && k < i.length) {
+                if (i[j] != i[k]) {
+                    break;
+                }
+                console.log(i.substring(j, k + 1));
+                count++;
+                j--;
+                k++;
+            }
+            return count;
+        };
+
+        let palindromeString = function (pal) {
+            let count = 0;
+            for (let i = 0; i < pal.length; i++) {
+                count += allPalindrome(pal, i - 1, i + 1);
+                count += allPalindrome(pal, i, i + 1);
+            }
+            return count;
+        };
+
+
+        let palindrome = "1221LAALLAGOODMALAYALAM";
+
+        let palindrome_count = palindromeString(palindrome);
+        console.log("Total palindrome: ", palindrome_count);
+    </script>
+
+</body>
+
+</html>
